@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Cinzel:wght@700;900&family=Crimson+Text:ital,wght@1,600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  background: #f0f4f8;
+  color: #0f1f3d;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e3a6e; border-radius: 4px; }
+
+@keyframes ping    { 0% { transform:scale(1); opacity:1; } 100% { transform:scale(1.8); opacity:0; } }
+@keyframes spin    { to  { transform:rotate(360deg); } }
+@keyframes pulse   { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes fadeIn  { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+@keyframes glow    { 0%,100% { box-shadow:0 0 8px #cc1a2e44; } 50% { box-shadow:0 0 20px #cc1a2e99; } }
+@keyframes shimmer   { 0% { left:-60%; } 100% { left:140%; } }
+@keyframes blink     { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes pulse-bar { 0%,100% { opacity:1; } 50% { opacity:0.5; } }

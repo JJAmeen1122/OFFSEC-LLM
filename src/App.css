@@ -1,0 +1,203 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Phase animation styles */
+.phase-active {
+  background: linear-gradient(90deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  animation: pulse 1.5s infinite;
+  font-weight: bold;
+}
+
+.phase-completed {
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.phase-pending {
+  color: #718096;
+}
+
+/* Progress bar animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Progress bar container */
+.progress-container {
+  margin: 16px 0;
+  padding: 12px;
+  background: #1a202c;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #2d3748;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #48bb78, #4299e1);
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Phase timeline */
+.phases-timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
+}
+
+.phases-timeline::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #2d3748;
+  z-index: 0;
+}
+
+.phase-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background: #1a202c;
+  padding: 0 10px;
+}
+
+.phase-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #2d3748;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.phase-step.active .phase-marker {
+  background: #4299e1;
+  box-shadow: 0 0 10px #4299e1;
+  animation: pulse 1.5s infinite;
+}
+
+.phase-step.completed .phase-marker {
+  background: #48bb78;
+}
+
+.phase-name {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Command log styles */
+.command-log {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.command-entry {
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 4px;
+  background: #1a202c;
+}
+
+.command-entry.running {
+  border-left: 3px solid #4299e1;
+  animation: pulse 1.5s infinite;
+}
+
+.command-entry.success {
+  border-left: 3px solid #48bb78;
+}
+
+.command-entry.error {
+  border-left: 3px solid #f56565;
+}
